@@ -9,25 +9,41 @@ var button = document.getElementById("searchButton");
 form.addEventListener("submit", handleForm);
 button.addEventListener("click", getSearch);
 
+// Form handler
+
 function handleForm(event){
   event.preventDefault();
   event.target.reset();
 }
 
+// Search Functionality
+
 function getSearch(){
   var category = document.getElementById("businessSearch").value;
   var location = document.getElementById("locationSearch").value;
-  $.ajax({
-    url: baseURL + "businesses/search?limit=20&offset=0&term=" + category + "&location=" + location + "",
-    method: "GET",
-    headers: {
-      "Authorization": "Bearer " + yKey,
-    },
-    success: logResult,
-    error: logError,
-  })
+  // $.ajax({
+  //   url: baseURL + "businesses/search?limit=20&offset=0&term=" + category + "&location=" + location + "",
+  //   method: "GET",
+  //   headers: {
+  //     "Authorization": "Bearer " + yKey,
+  //   },
+  //   success: logResult,
+  //   error: logError,
+  // })
   // console.log(category, location);
+  if(event.target) {
+    form.classList.add("hidden")
+    var landingPage = document.getElementById("landingPage");
+    landingPage.classList.remove("background-image");
+    landingPage.classList.add("new-background-image");
+    var headerTitle = document.querySelector(".header-title");
+    headerTitle.classList.add("new-header-title");
+    // console.log("it is hidden");
+  }
 }
+
+
+// Image Search
 
 function getImage(){
   $.ajax({
@@ -44,4 +60,11 @@ function logResult(result){
 
 function logError(error){
   console.log("UH OH!", error);
+}
+
+
+// Update Search
+
+function updateSearch(){
+
 }
