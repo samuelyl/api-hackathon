@@ -1,0 +1,24 @@
+body {
+  height: 97vh;
+  width: 100%;
+  background-image: url(https://i.pinimg.com/originals/2b/0a/7a/2b0a7a08d1d9eff6d4b1ba7ba56b0e25.jpg);
+}
+
+.header-title {
+  position: relative;
+  top: 9rem;
+  font-family: 'Satisfy', cursive;
+  font-size: 5rem;
+  color: snow;
+}
+
+.form-layout {
+  position: relative;
+  top: 30rem;
+  color: snow;
+}
+
+.button-container {
+  position: relative;
+  top: 2rem;
+}
