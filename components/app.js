@@ -9,11 +9,16 @@ var category = document.getElementById("businessSearch");
 var newLocation = document.getElementById("locationSearch");
 form.addEventListener("submit", function(event){
   event.preventDefault();
-  // var textInput = event.target[0];
-  // console.log(textInput);
   getSearch();
   // updateSearch();
   event.target.reset();
+});
+form.addEventListener("keyup", function () {
+  if (category.value && newLocation.value) {
+    button.removeAttribute("disabled");
+  } else {
+    button.setAttribute("disabled", true);
+  }
 });
 
 // Search Functionality
@@ -21,7 +26,6 @@ form.addEventListener("submit", function(event){
 function getSearch(){
   var myCategory = category.value;
   var myLocation = newLocation.value;
-  // ifText();
   $.ajax({
     url: baseURL + "businesses/search?limit=15&offset=0&term=" + myCategory + "&location=" + myLocation + "",
     method: "GET",
@@ -32,6 +36,7 @@ function getSearch(){
       var tBody = document.querySelector(".tbody");
       var resultTable = document.getElementById("resultTable");
       tBody.textContent = "";
+
       for (var i = 0; i < data.businesses.length; i++) {
         console.log(data.businesses[i].name);
         console.log(data.businesses[i].display_phone);
@@ -75,28 +80,11 @@ function getImage(){
   $.ajax({
     url: "https://api.giphy.com/v1/gifs/random?api_key=" + gKey + "&tag=Motivation&rating=G",
     method: "GET",
-    success: logResult,
-    error: logError,
+    success: function(result){
+      console.log(result);
+    },
+    error: function(error){
+      console.log(error);
+    },
   })
 }
-
-// Update Search
-
-// function updateSearch(data){
-//   var tBody = document.querySelector(".tbody");
-//   tBody.textContent = "";
-//   for (var i = 0; i < yData.length; i++){
-//     console.log(yData.businesses[i].name);
-//     console.log(yData.businesses[i].display_phone);
-//     console.log(yData.businesses[i].location);
-//     var row = document.createElement("tr");
-//     var col1 = document.createElement("td");
-//     var col2 = document.createElement("td");
-//     var col3 = document.createElement("td");
-//     col1.textContent = yData.businesses[i].name;
-//     col2.textContent = yData.businesses[i].display_phone;
-//     col3.textContent = yData.businesses[i].location;
-//     row.append(col1, col2, col3);
-//     tBody.append(row);
-//   }
-// }

@@ -16,8 +16,9 @@
     <header class="header-container text-center">
       <h1 class="header-title">Happy Search</h1>
     </header>
-    <main class="main-container row justify-content-center">
-      <form class="col-5 form-layout" id="searchForm">
+    <main class="main-container container h-75">
+      <div class="row justify-content-center h-100">
+      <form class="col-12 col-sm-6 form-layout m-auto" id="searchForm">
         <div class="form-group">
           <label for="business">Enter A Business:</label>
           <div class="input-group mb-2">
@@ -34,14 +35,15 @@
             <input type="text" class="form-control" id="locationSearch" placeholder="LA, Chicago, NY...">
           </div>
           <div class="button-container text-center">
-            <button type="submit" class="btn btn-success" id="searchButton">Happy Search!</button>
+            <button type="submit" class="btn btn-success" id="searchButton" disabled>Happy Search!</button>
           </div>
         </div>
       </form>
+      </div>
     </main>
     <div class="row hidden justify-content-center" id="resultTable">
       <div class="col-sm-9">
-        <table class="table table-light table-striped table-hover">
+        <table class="table table-light table-striped table-hover m-auto">
           <thead class="thead-dark">
             <tr>
               <th class="column-1">Business Name</th>
@@ -51,7 +53,7 @@
           </thead>
           <tbody class="tbody"></tbody>
         </table>
-        <!-- <button class="next-button justify-content-end btn btn-info" id="nextButton">Next</button> -->
+        <!-- <button class="reset-button justify-content-center btn btn-danger" id="resetButton">Next</button> -->
       </div>
     </div>
   </div>
