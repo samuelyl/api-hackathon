@@ -76,6 +76,7 @@ body {
 }
 
 .error-text {
+  font-family: 'Anton', sans-serif;
   position: absolute;
   bottom: 35rem;
   left: 18rem;
