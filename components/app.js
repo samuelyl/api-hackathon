@@ -5,8 +5,10 @@ var form = document.getElementById("searchForm");
 var button = document.getElementById("searchButton");
 var category = document.getElementById("businessSearch");
 var newLocation = document.getElementById("locationSearch");
+var modalOverlay = document.querySelector(".modal-overlay");
 var modalContent = document.querySelector(".modal-content");
 var modal = document.querySelector(".modal");
+var closeButton = document.querySelector('.close-button');
 var errorText = document.querySelector(".error-text");
 form.addEventListener("submit", function(event){
   event.preventDefault();
@@ -20,6 +22,9 @@ form.addEventListener("keyup", function () {
     button.setAttribute("disabled", true);
   }
 });
+closeButton.addEventListener("click", function(){
+  modalOverlay.classList.add("d-none");
+})
 
 // Search Functionality
 
@@ -52,7 +57,7 @@ function postData (data) {
     var col3 = document.createElement("td");
     col1.textContent = data.businesses[i].name;
     col2.textContent = data.businesses[i].display_phone;
-    col3.textContent = data.businesses[i].location.address1 + " " + data.businesses[i].location.city + ", " + data.businesses[i].location.state + " " + data.businesses[i].location.country + " " + data.businesses[i].location.zip_code;
+    col3.textContent = data.businesses[i].location.address1 + " " + data.businesses[i].location.city + ", " + data.businesses[i].location.state + " " + data.businesses[i].location.zip_code;
     row.append(col1, col2, col3);
     tBody.append(row);
     resultTable.classList.remove("d-none");
@@ -60,7 +65,7 @@ function postData (data) {
       col2.textContent = "Not Listed";
     }
     if (!data.businesses[i].location.address1) {
-      col3.textContent = " " + data.businesses[i].location.city + ", " + data.businesses[i].location.state + " " + data.businesses[i].location.country + " " + data.businesses[i].location.zip_code;
+      col3.textContent = " " + data.businesses[i].location.city + ", " + data.businesses[i].location.state + " " + data.businesses[i].location.zip_code;
     }
   }
   getImage();
@@ -79,7 +84,7 @@ function hideLanding (){
 
 function handleError (error) {
   console.log(error);
-  errorText.textContent = "UH OH! Something Went Wrong!";
+  // errorText.textContent = "UH OH! Something Went Wrong!";
   errorText.classList.remove("hide");
   formContainer.classList.add("d-none");
 }
@@ -88,7 +93,7 @@ function handleError (error) {
 
 function getImage(){
   $.ajax({
-    url: "https://api.giphy.com/v1/gifs/random?api_key=" + gKey + "&tag=sports motivation&rating=G",
+    url: "https://api.giphy.com/v1/gifs/random?api_key=" + gKey + "&tag=funny sports motivational&rating=G",
     method: "GET",
     success: postGif,
     error: function(error){

@@ -6,6 +6,8 @@
   <title>API-Hackathon</title>
   <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -14,11 +16,11 @@
 <body>
   <div class="background-image" id="landingPage">
     <header class="header-container text-center">
-      <h1 class="header-title">MotivSearch</h1>
+      <h1 class="header-title">Happy Search!</h1>
     </header>
     <main class="main-container container h-75">
       <div class="hide error-text m-auto">
-        <i class="fas fa-sad-tear"></i><i class="fas fa-sad-tear"></i>
+        <i class="fas fa-sad-tear"></i>&nbsp;UH OH! Something Went Wrong!&nbsp;<i class="fas fa-sad-tear"></i>
       </div>
       <div class="row justify-content-center h-100" id="formContainer">
         <form class="col-12 col-sm-6 form-layout m-auto" id="searchForm">
@@ -38,7 +40,7 @@
               <input type="text" class="form-control" id="locationSearch" placeholder="LA, Chicago, NYC...">
             </div>
             <div class="button-container text-center">
-              <button type="submit" class="btn btn-success" id="searchButton" disabled>MotivSearch!</button>
+              <button type="submit" class="btn btn-success" id="searchButton" disabled>Go!</button>
             </div>
           </div>
         </form>
@@ -46,13 +48,12 @@
     </main>
     <div class="row d-none justify-content-center" id="resultTable">
       <div class="modal-overlay">
-        <!-- <div class="modal-text">You've Got This!!!</div> -->
         <div class="modal-content">
-          <!-- <p id="modalImg">You've Got This!</p> -->
         </div>
+        <button class="close-button btn btn-sm btn-danger">X</button>
       </div>
       <div class="col-sm-9">
-        <table class="table table-light table-striped table-hover m-auto">
+        <table class="table table-dark table-striped table-hover m-auto table-main">
           <thead class="thead-dark">
             <tr>
               <th class="column-1">Business Name</th>
